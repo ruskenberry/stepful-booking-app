@@ -24,14 +24,14 @@ class Session
     #[ORM\ManyToOne(inversedBy: 'sessions')]
     private ?Student $student = null;
 
-    #[ORM\Column]
-    private ?bool $status = null;
-
-    #[ORM\Column(nullable: true)]
+   #[ORM\Column(nullable: true)]
     private ?int $satisfaction = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $notes = null;
+
+    #[ORM\Column]
+    private ?bool $status = true;
 
     public function getId(): ?int
     {
