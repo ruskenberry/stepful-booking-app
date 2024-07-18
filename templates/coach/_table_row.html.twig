@@ -1,0 +1,10 @@
+<tr>
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ coach.id }}</td>
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ coach.firstName }}</td>
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ coach.lastName }}</td>
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ coach.phoneNumber }}</td>
+    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+        <a href="{{ path('app_coach_show', {'id': coach.id}) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Show</a>
+        <a href="{{ path('app_coach_edit', {'id': coach.id}) }}" class="text-green-600 hover:text-green-900">Edit</a>
+    </td>
+</tr>

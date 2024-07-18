@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ title|default('New Coach') }}{% endblock %}
+
+{% block body %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">{{ title|default('New Coach') }}</h1>
+
+    <div class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+        {% include 'coach/_form.html.twig' with {
+            form_attr: {
+                'class': 'space-y-4'
+            }
+        } %}
+    </div>
+
+    <div class="mt-6">
+        <a href="{{ path('app_coach_index') }}" class="text-indigo-600 hover:text-indigo-900">Back to list</a>
+    </div>
+</div>
+{% endblock %}

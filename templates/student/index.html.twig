@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student Index{% endblock %}
+
+{% block body %}
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Student Index</h1>
+    <div class="overflow-x-auto bg-white shadow-md rounded-lg">
+        <table class="min-w-full leading-normal" id="studentsTable">
+            <thead>
+                <tr>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Id</th>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">First Name</th>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Last Name</th>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Phone Number</th>
+                    <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+                <tr>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ student.id }}</td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ student.firstName }}</td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ student.lastName }}</td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ student.phoneNumber }}</td>
+                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                        <a href="{{ path('app_student_show', {'id': student.id}) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Show</a>
+                        <a href="{{ path('app_student_edit', {'id': student.id}) }}" class="text-green-600 hover:text-green-900">Edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-6">
+        <button 
+        hx-get="{{ path('app_student_new') }}"
+        hx-target="#modal-container" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        hx-trigger="click">
+            Create New Student
+        </a>
+    </div>
+<div>
+<div id="modal-container"></div>
+{% endblock %}

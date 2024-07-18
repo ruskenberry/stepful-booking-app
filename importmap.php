@@ -25,4 +25,10 @@ return [
     '@hotwired/turbo' => [
         'version' => '7.3.0',
     ],
+    'hyperscript.org' => [
+        'version' => '0.9.12',
+    ],
+    'htmx.org' => [
+        'version' => '2.0.1',
+    ],
 ];

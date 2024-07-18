@@ -8,3 +8,10 @@ import './bootstrap.js';
 import './styles/app.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+import _hyperscript from 'hyperscript.org';
+
+_hyperscript.browserInit();
+
+import * as htmx from 'htmx.org';
+window.htmx = htmx
